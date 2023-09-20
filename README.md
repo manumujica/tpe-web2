@@ -1,4 +1,15 @@
 # tpe-web2
-Integrantes: Axel Bustamante, Manuel Mujica
-Temática: Fonoteca - Discos musicales
-Breve descripción: Crearemos el inventario de una fonoteca musical, condensando datos como fechas, artistas, discos, etc.
+# Fonoteca Musical
+
+## Integrantes
+- Axel Bustamante
+- Manuel Mujica
+
+## Temática
+Este proyecto se centra en la creación de un inventario para una fonoteca musical. Estamos recopilando datos relacionados con la música, incluyendo fechas, artistas, discos y más.
+
+## Objetivos
+Nuestros objetivos principales incluyen:
+- Crear una base de datos de discos musicales.
+- Registrar información detallada sobre cada disco, como el nombre del artista, título del disco, año de lanzamiento y género musical.
+- Facilitar la búsqueda y recuperación de información sobre discos específicos.
