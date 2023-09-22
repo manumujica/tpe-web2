@@ -2,14 +2,11 @@
 # Fonoteca Musical
 
 ## Integrantes
-- Axel Bustamante
-- Manuel Mujica
+- Axel Bustamante (vascoguitar@hotmail.com)
+- Manuel Mujica (manuelmujica1973@gmail.com)
 
 ## Temática
-Este proyecto se centra en la creación de un inventario para una fonoteca musical. Estamos recopilando datos relacionados con la música, incluyendo fechas, artistas, discos y más.
+Este proyecto se centra en la creación de un inventario para una fonoteca musical. Estamos recopilando datos relacionados con la música, pensado a través de canciones, discos, géneros y artistas.
 
-## Objetivos
-Nuestros objetivos principales incluyen:
-- Crear una base de datos de discos musicales.
-- Registrar información detallada sobre cada disco, como el nombre del artista, título del disco, año de lanzamiento y género musical.
-- Facilitar la búsqueda y recuperación de información sobre discos específicos.
+## Breve descripción
+Nos proponemos realizar una fonoteca digital que permita ingresar y obtener información sobre canciones (duración, álbum al que pertenecen) álbumes (año de lanzamiento, artista, género, duración), artistas (lugar y fecha de nacimiento) y géneros.
