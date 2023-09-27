@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-09-2023 a las 22:14:00
+-- Tiempo de generación: 27-09-2023 a las 04:42:10
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -37,19 +37,6 @@ CREATE TABLE `artistas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `canciones`
---
-
-CREATE TABLE `canciones` (
-  `id_song` int(11) NOT NULL,
-  `song_name` varchar(100) NOT NULL,
-  `length` time NOT NULL,
-  `id_album` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `discos`
 --
 
@@ -60,17 +47,6 @@ CREATE TABLE `discos` (
   `id_genre` int(11) NOT NULL,
   `id_artist` int(11) NOT NULL,
   `length` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `generos`
---
-
-CREATE TABLE `generos` (
-  `id_genre` int(11) NOT NULL,
-  `genre_name` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -84,25 +60,11 @@ ALTER TABLE `artistas`
   ADD PRIMARY KEY (`id_artista`);
 
 --
--- Indices de la tabla `canciones`
---
-ALTER TABLE `canciones`
-  ADD PRIMARY KEY (`id_song`),
-  ADD KEY `idx_id_album` (`id_album`);
-
---
 -- Indices de la tabla `discos`
 --
 ALTER TABLE `discos`
   ADD PRIMARY KEY (`id_album`) USING BTREE,
-  ADD KEY `idx_id_genre` (`id_genre`),
   ADD KEY `idx_id_artist` (`id_artist`);
-
---
--- Indices de la tabla `generos`
---
-ALTER TABLE `generos`
-  ADD PRIMARY KEY (`id_genre`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -115,22 +77,10 @@ ALTER TABLE `artistas`
   MODIFY `id_artista` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `canciones`
---
-ALTER TABLE `canciones`
-  MODIFY `id_song` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `discos`
 --
 ALTER TABLE `discos`
   MODIFY `id_album` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `generos`
---
-ALTER TABLE `generos`
-  MODIFY `id_genre` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
