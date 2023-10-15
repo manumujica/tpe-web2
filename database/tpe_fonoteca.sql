@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2023 a las 04:42:10
+-- Tiempo de generación: 15-10-2023 a las 23:20:25
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -44,7 +44,6 @@ CREATE TABLE `discos` (
   `id_album` int(11) NOT NULL,
   `album_name` varchar(100) NOT NULL,
   `release_date` date NOT NULL,
-  `id_genre` int(11) NOT NULL,
   `id_artist` int(11) NOT NULL,
   `length` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -81,18 +80,6 @@ ALTER TABLE `artistas`
 --
 ALTER TABLE `discos`
   MODIFY `id_album` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `discos`
---
-ALTER TABLE `discos`
-  ADD CONSTRAINT `discos_ibfk_1` FOREIGN KEY (`id_genre`) REFERENCES `generos` (`id_genre`),
-  ADD CONSTRAINT `discos_ibfk_2` FOREIGN KEY (`id_album`) REFERENCES `canciones` (`id_album`),
-  ADD CONSTRAINT `discos_ibfk_3` FOREIGN KEY (`id_artist`) REFERENCES `artistas` (`id_artista`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
