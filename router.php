@@ -1,5 +1,6 @@
 <?php
 require_once './app/controllers/lista.discos.controller.php';
+require_once './app/controllers/discos.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -22,5 +23,20 @@ switch ($params[0]) {
     case 'listardiscos':
         $controller = new DiscosController();
         $controller->showAlbums();
+        break;
+    case 'agregardisco':
+        $controller = new DiscosController();
+        $controller->addAlbum();
+        break;
+    case 'eliminardisco':
+        $controller = new DiscosController();
+        $controller->removeAlbum($params[1]);
+        break;
+    case 'seleccionardisco':
+        $controller = new DiscosController();
+        $controller->addAlbumToSelection($params[1]);
+    case 'deseleccionardisco':
+        $controller = new DiscosController();
+        $controller->removeAlbumFromSelection($params[1]);
         break;
     }

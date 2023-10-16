@@ -14,4 +14,26 @@ class DiscosModel {
         $albums = $query->fetchAll(PDO::FETCH_OBJ);
         return $albums;
     }
+
+    public function insertAlbum($album_name, $release_date, $id_artist, $duration){
+    
+        $query = $this->db->prepare('INSERT INTO discos (album_name, release_date, id_artist, duration) VALUES (?,?,?,?)');
+        $query->execute([$album_name, $release_date, $id_artist, $duration]);
+        return $this->db->lastInsertId();
+    }
+
+    public function deleteAlbum($id){
+        $query = $this->db->prepare('DELETE FROM discos WHERE id_album = ?');
+        $query->execute([$id]);
+    }
+
+    public function updateAlbum($id){
+        $query = $this->db->prepare('UPDATE discos SET selected = 1 WHERE id_album = ?');
+        $query->execute([$id]);
+    }
+
+    public function restoreAlbum($id){
+        $query = $this->db->prepare('UPDATE discos SET selected = 0 WHERE id_album = ?');
+        $query->execute([$id]);
+    }
 }
