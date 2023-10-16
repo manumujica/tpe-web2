@@ -19,4 +19,8 @@ switch ($params[0]) {
         $controller = new ListaDiscosController();
         $controller->showDiscos();
         break;
+    case 'listardiscos':
+        $controller = new DiscosController();
+        $controller->showAlbums();
+        break;
     }
