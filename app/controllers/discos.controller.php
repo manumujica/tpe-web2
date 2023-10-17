@@ -52,4 +52,9 @@ class DiscosController {
         $this->model->restoreAlbum($id);
         header('Location: ' . BASE_URL . 'listardiscos');
     }
+
+    function showSeleccionados(){
+        $albums = $this->model->getSelectedAlbums();
+        $this->view->showAlbums($albums);
+    }
 }
