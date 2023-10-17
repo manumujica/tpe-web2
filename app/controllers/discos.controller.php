@@ -15,6 +15,7 @@ class DiscosController {
 
     function showAlbums(){
         $albums = $this->model->getAlbums();
+        //$artists = $this->model->getArtistsForAlbum();
         $this->view->showAlbums($albums);
     }
 

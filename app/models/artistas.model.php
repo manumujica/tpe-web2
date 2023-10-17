@@ -21,17 +21,17 @@ class ArtistasModel{
     }
 
     public function deleteArtist($id){
-        $query = $this->db->prepare('DELETE FROM artistas WHERE id_artista = ?');
+        $query = $this->db->prepare('DELETE FROM artistas WHERE id_artist = ?');
         $query->execute([$id]);
     }
 
     public function updateArtist($id){
-        $query = $this->db->prepare('UPDATE artistas SET selected = 1 WHERE id_artista = ?');
+        $query = $this->db->prepare('UPDATE artistas SET selected = 1 WHERE id_artist = ?');
         $query->execute([$id]);
     }
 
     public function restoreArtist($id) {
-        $query = $this->db->prepare('UPDATE artistas SET selected = 0 WHERE id_artista = ?');
+        $query = $this->db->prepare('UPDATE artistas SET selected = 0 WHERE id_artist = ?');
         $query->execute([$id]);
     }
 }

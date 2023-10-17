@@ -9,11 +9,18 @@ class DiscosModel {
     }
 
     public function getAlbums(){
-        $query = $this->db->prepare('SELECT discos.*, artistas.artist_name as artist_name FROM discos JOIN artistas ON discos.id_artist = artistas.id_artista');
+        $query = $this->db->prepare('SELECT discos.*, artistas.artist_name as artist_name FROM discos JOIN artistas ON discos.id_artist = artistas.id_artist');
         $query->execute();
         $albums = $query->fetchAll(PDO::FETCH_OBJ);
         return $albums;
     }
+
+    /*public function getArtistsForAlbum(){
+        $query = $this->db->prepare('SELECT * FROM artistas');
+        $query->execute();
+        $artists = $query->fetchAll(PDO::FETCH_OBJ);
+        return $artists;
+    }*/
 
     public function insertAlbum($album_name, $release_date, $id_artist, $duration){
     
