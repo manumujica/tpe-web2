@@ -29,11 +29,20 @@
                             <a class="nav-link" aria-current="page" href="router.php?action=artistas">Artistas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="router.php?action=login">Login</a>
+                            <a class="nav-link" aria-current="page" href="discosseleccionados">Discos recomendados del mes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="artistasseleccionados">Artistas recomendados del mes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="registrarse">Registrarse</a>
                         </li>
                         <?php else : ?>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="logout">Logout (<?= $_SESSION['USER_EMAIL'] ?>)</a>
+                            <a class="nav-link" aria-current="page" href="logout">Logout (<?= $_SESSION['USER_USERNAME'] ?>)</a>
                         </li>
                         <?php endif ?>
                     </ul>

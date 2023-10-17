@@ -46,11 +46,20 @@ class ListasController {
         $artistas = $this->model->getArtistas();
         $this->view->showArtistas($artistas);
     }
+
+    function showAlbSeleccionados(){
+        $albums = $this->model->getSelectedAlbums();
+        $this->view->showDiscos($albums);
+    }
     
     function showFiltro(){
         //pido los artistas para mostrarlos en el select del form de filtradodinamicamente
         $artistas = $this->model->getArtistas();
         $this->view->showFiltro($artistas);
+    }
+    function showArtSeleccionados(){
+        $artistas = $this->model->getSelectedArtists();
+        $this->view->showArtistas($artistas);
     }
 
 }

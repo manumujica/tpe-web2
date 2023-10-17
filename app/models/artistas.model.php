@@ -34,11 +34,4 @@ class ArtistasModel{
         $query = $this->db->prepare('UPDATE artistas SET selected = 0 WHERE id_artist = ?');
         $query->execute([$id]);
     }
-
-    public function getSelectedAlbums(){
-        $query = $this->db->prepare('SELECT * FROM artistas WHERE artistas.selected = 1');
-        $query->execute();
-        $albums = $query->fetchAll(PDO::FETCH_OBJ);
-        return $albums;
-    }
 }
