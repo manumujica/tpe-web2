@@ -1,11 +1,11 @@
-<?php require 'templates/header.phtml' ?>
+<?php require 'templates/header.phtml';?>
 
-
+<h2>Discos</h2>
 <ul class="list-group">
 <?php foreach($discos as $disco): ?>
     <li class="list-group-item disco">
         <div>
-            <b>Disco: <?= $disco->album_name ?></b> | Artista: <?=$disco->id_artist?> | Fecha de lanzamiento:<?= $disco->release_date?> | Duración:<?= $disco->length?>
+            <b><?= $disco->album_name ?></b> | Artista: <?=$disco->id_artist?> | Fecha de lanzamiento:<?= $disco->release_date?> | Duración:<?= $disco->length?>
         </div>
     </li>
 <?php endforeach ?>
@@ -13,5 +13,6 @@
 
 <p class="mt-3"><small>Mostrando <?=$count?> discos</small></p>
 
+<?php require 'templates/formDiscoPorArtista.phtml';?>
 
-<?php require 'templates/footer.phtml' ?>
+<?php require 'templates/footer.phtml';?>
