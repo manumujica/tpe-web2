@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2023 a las 23:21:28
+-- Tiempo de generación: 17-10-2023 a las 15:24:18
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `tpe_fonoteca`
+-- Base de datos: `tpe_web_2`
 --
 
 -- --------------------------------------------------------
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `artistas` (
-  `id_artista` int(11) NOT NULL,
+  `id_artist` int(11) NOT NULL,
   `artist_name` varchar(100) NOT NULL,
   `artist_dob` date NOT NULL,
   `artist_pob` varchar(100) NOT NULL,
@@ -39,8 +39,8 @@ CREATE TABLE `artistas` (
 -- Volcado de datos para la tabla `artistas`
 --
 
-INSERT INTO `artistas` (`id_artista`, `artist_name`, `artist_dob`, `artist_pob`, `selected`) VALUES
-(1, 'Charly García', '1951-10-23', 'Argentina', 1),
+INSERT INTO `artistas` (`id_artist`, `artist_name`, `artist_dob`, `artist_pob`, `selected`) VALUES
+(1, 'Charly García', '1951-10-23', 'Argentina', 0),
 (2, 'León Gieco', '1951-11-20', 'Argentina', 0),
 (6, 'Luis Alberto Spinetta', '1950-01-23', 'Argentina', 0),
 (7, 'Fito Páez', '1963-03-13', 'Argentina', 0),
@@ -67,7 +67,7 @@ CREATE TABLE `discos` (
 
 INSERT INTO `discos` (`id_album`, `album_name`, `release_date`, `id_artist`, `duration`, `selected`) VALUES
 (1, 'Clicks Modernos', '1983-11-05', 1, '00:33:04', 0),
-(2, 'Por favor, perdón y gracias', '2005-09-06', 2, '00:59:18', 1),
+(2, 'Por favor, perdón y gracias', '2005-09-06', 2, '00:59:18', 0),
 (5, 'El fantasma de Canterville', '1976-02-03', 2, '00:41:00', 0),
 (6, 'León Gieco', '1973-07-16', 2, '00:33:00', 0),
 (7, 'La banda de caballos cansados', '1974-09-01', 2, '00:36:00', 0),
@@ -83,7 +83,7 @@ INSERT INTO `discos` (`id_album`, `album_name`, `release_date`, `id_artist`, `du
 -- Indices de la tabla `artistas`
 --
 ALTER TABLE `artistas`
-  ADD PRIMARY KEY (`id_artista`);
+  ADD PRIMARY KEY (`id_artist`);
 
 --
 -- Indices de la tabla `discos`
@@ -100,13 +100,13 @@ ALTER TABLE `discos`
 -- AUTO_INCREMENT de la tabla `artistas`
 --
 ALTER TABLE `artistas`
-  MODIFY `id_artista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_artist` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `discos`
 --
 ALTER TABLE `discos`
-  MODIFY `id_album` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_album` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
