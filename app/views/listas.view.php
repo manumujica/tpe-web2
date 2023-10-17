@@ -6,6 +6,14 @@ class ListasView {
         require 'templates/discosList.phtml';
     }
 
+    public function showDetalleDisco($disco){
+        require 'templates/detalleDisco.phtml';
+    }
+
+    public function showFiltro($artistas) {
+        require 'templates/formDiscoPorArtista.phtml';
+    }
+
     public function showArtistas($artistas) {
         $count = count($artistas);
         require 'templates/artistasList.phtml';

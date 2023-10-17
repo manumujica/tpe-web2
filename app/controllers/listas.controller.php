@@ -15,21 +15,31 @@ class ListasController {
     function showDiscos(){
         $discos = $this->model->getDiscos();
         $this->view->showDiscos($discos);
+        $this->showFiltro();
     }
     
     function filtrarDiscos(){
+        //recibo por $_POST el artista por el que quiero filtrar los discos mostrados y lo guardo en variable
         $artistaDeseado= $_POST['artistas'];
-        echo "Variable artistaDeseado recibida por _post: ";
-        var_dump($artistaDeseado);
-        if($artistaDeseado=="Todos"){
-            $discos = $this->model->getDiscos();
+        if($artistaDeseado=="Todos"){$discos = $this->model->getDiscos();}
+        else{$discos = $this->model->getDiscosFiltrados($artistaDeseado);}
+
+        if (count($discos)==0){
+            $error="No hay discos de éste artista";
+            $this->view->showError($error);
+            $this->showFiltro();
         }
         else{
-            $discos = $this->model->getDiscosFiltrados($artistaDeseado);
-        }
-        echo " | Lo que llegó a la funcion filtrarDiscos(): ";
-        var_dump($discos);
-        $this->view->showDiscos($discos);
+            $this->view->showDiscos($discos);
+            $this->showFiltro();
+        }        
+        //$this->view->showDiscos($discos);
+        //$this->showFiltro();
+    }
+
+    function showDetalleDiscoById($id){
+        $disco=$this->model->getDiscoById($id);
+        $this->view->showDetalleDisco($disco);
     }
 
     function showArtistas(){
@@ -37,5 +47,10 @@ class ListasController {
         $this->view->showArtistas($artistas);
     }
     
+    function showFiltro(){
+        //pido los artistas para mostrarlos en el select del form de filtradodinamicamente
+        $artistas = $this->model->getArtistas();
+        $this->view->showFiltro($artistas);
+    }
 
 }

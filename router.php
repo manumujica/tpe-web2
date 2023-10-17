@@ -13,7 +13,8 @@ if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
 
-// listar    ->         taskController->showList();
+// discos       ->          ListasController->showDiscos();
+// login        ->          
 
 $params = explode('/', $action);
 
@@ -26,6 +27,10 @@ switch ($params[0]) {
         $controller = new ListasController();
         $controller->showDiscos();
         break;
+    case 'detalleDiscos': 
+        $controller = new ListasController();
+        $controller->showDetalleDiscoById($params[1]);        
+        break;
     case 'artistas':
         $controller = new ListasController();
         $controller->showArtistas();
@@ -33,9 +38,6 @@ switch ($params[0]) {
     case 'filtrar':
         $controller = new ListasController();
         $controller->filtrarDiscos();
-        break;
-    case 'login':
-        require 'templates/header.phtml';
         break;
     case 'listardiscos':
         $controller = new DiscosController();

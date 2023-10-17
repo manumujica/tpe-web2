@@ -1,20 +1,18 @@
 <form action="filtrar" method="POST" class="my-4">
-    <div class="row">
+    <div class="row">          
         <h4>Ver discos por artista:</h3>
         <div class="col-7">
             <label>Seleccionar artista</label>
             <select required name="artistas" class="form-control">
                 <option value="Todos">Todos</option>
-                <option value="Charly García">Charly García</option>
-                <option value="León Gieco">León Gieco</option>
-                <option value="Luis Alberto Spinetta">Luis Alberto Spinetta</option>
-                <option value="Fito Paéz">Fito Paéz</option>
-                <option value="Caetano Veloso">Caetano Veloso</option>
-            </select>
+                <?php foreach ($artistas as $artista) : ?>
+                    <option value="<?= $artista->artist_name ?>"><?= $artista->artist_name ?></option>
+                    <?php endforeach ?>
+                </select>
         </div>
     </div>
     <button type="submit" class="btn btn-primary mt-2">Filtrar</button>
-
-
 </form>
+
+<?php require 'templates/footer.phtml';?>
 
