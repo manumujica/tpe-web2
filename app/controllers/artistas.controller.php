@@ -50,4 +50,9 @@ class ArtistasController{
         $this->model->restoreArtist($id);
         header('Location: ' . BASE_URL . 'listarartistas');
     }
+
+    function showSeleccionados(){
+        $artists = $this->model->getSelectedAlbums();
+        $this->view->showArtists($artists);
+    }
 }

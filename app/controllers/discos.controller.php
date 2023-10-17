@@ -12,11 +12,14 @@ class DiscosController {
         $this->model = new DiscosModel();
         $this->view = new DiscosView();
     }
-
     function showAlbums(){
         $albums = $this->model->getAlbums();
-        //$artists = $this->model->getArtistsForAlbum();
         $this->view->showAlbums($albums);
+    }
+
+    function showAddalbum(){
+        $artists = $this->model->getArtistsForAlbum();
+        $this->view->showAddAlbum($artists);
     }
 
     function addAlbum(){
@@ -51,5 +54,10 @@ class DiscosController {
     function removeAlbumFromSelection($id){
         $this->model->restoreAlbum($id);
         header('Location: ' . BASE_URL . 'listardiscos');
+    }
+
+    function showSeleccionados(){
+        $albums = $this->model->getSelectedAlbums();
+        $this->view->showAlbums($albums);
     }
 }

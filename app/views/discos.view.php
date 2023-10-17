@@ -2,7 +2,6 @@
 
 class DiscosView {
     public function showAlbums($albums){
-        require 'templates/addalbum.phtml';
         ?>
         <table>
             <tr>
@@ -25,6 +24,10 @@ class DiscosView {
                 </tr>
             <?php } ?>
             </table> <?php
+    }
+
+    public function showAddAlbum($artists){
+        require_once './templates/addalbum.phtml';
     }
 
     public function showError($error){
