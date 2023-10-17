@@ -5,7 +5,7 @@
 <?php foreach($discos as $disco): ?>
     <li class="list-group-item disco">
         <div>
-            <b><?= $disco->album_name ?></b> | Artista: <?=$disco->id_artist?> | Fecha de lanzamiento:<?= $disco->release_date?> | Duración:<?= $disco->length?>
+            <b>Disco: <?= $disco->album_name ?></b> | Artista: <?=$disco->id_artist?> | Fecha de lanzamiento:<?= $disco->release_date?> | Duración:<?= $disco->duration?>
         </div>
     </li>
 <?php endforeach ?>
