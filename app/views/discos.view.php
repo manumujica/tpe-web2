@@ -3,7 +3,6 @@
 class DiscosView {
     public function showAlbums($albums){
         require 'templates/addalbum.phtml';
-        require 'templates/addartist.phtml';
         ?>
         <table>
             <tr>
