@@ -20,6 +20,10 @@ class ArtistasController{
         $this->view->showArtists($artists);
     }
 
+    function showAddArtist(){
+        $this->view->showAddArtist();
+    }
+
     function addArtist(){
         if(!isset($_POST['artist']) || !isset($_POST['dob']) || !isset($_POST['pob'])){
             $this->view->showError("Error en la validación. No se puede agregar el artista.");

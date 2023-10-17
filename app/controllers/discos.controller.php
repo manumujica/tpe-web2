@@ -57,4 +57,8 @@ class DiscosController {
         $this->model->restoreAlbum($id);
         header('Location: ' . BASE_URL . 'listardiscos');
     }
+
+    function showLoggedHome(){
+        $this->view->showAdminMenu();
+    }
 }

@@ -30,7 +30,7 @@ class AuthController{
 
         if($user && password_verify($password, $user->password)){
             AuthHelper::login($user);
-            header('Location: ' . BASE_URL);
+            header('Location: ' . BASE_URL . 'loginhome');
         } else {
            $this->view->showLogin("Contraseña o nombre de usuario incorrectos.");
         }

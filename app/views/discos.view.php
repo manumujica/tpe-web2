@@ -33,4 +33,8 @@ class DiscosView {
     public function showError($error){
         require 'templates/error.phtml';
     }
+
+    public function showAdminMenu(){
+        require 'templates/adminmenu.phtml';
+    }
 }
