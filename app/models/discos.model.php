@@ -43,11 +43,4 @@ class DiscosModel {
         $query = $this->db->prepare('UPDATE discos SET selected = 0 WHERE id_album = ?');
         $query->execute([$id]);
     }
-
-    public function getSelectedAlbums(){
-        $query = $this->db->prepare('SELECT discos.*, artistas.artist_name as artist_name FROM discos JOIN artistas ON discos.id_artist = artistas.id_artist WHERE discos.selected = 1');
-        $query->execute();
-        $albums = $query->fetchAll(PDO::FETCH_OBJ);
-        return $albums;
-    }
 }

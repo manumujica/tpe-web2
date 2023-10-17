@@ -12,6 +12,6 @@ class ListasView {
     }
 
     public function showError($error) {
-        require 'templates/error.phtml';
+        require_once 'templates/error.phtml';
     }
 }

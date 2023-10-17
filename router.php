@@ -22,6 +22,19 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->showLogin();
         break;
+    case 'verificarusuario':
+        $controller = new AuthController();
+        $controller->verifyUser();
+    case 'registrarse':
+        $controller = new AuthController();
+        $controller->registerUser();
+        break;
+    case 'verificarregistro':
+        $controller = new AuthController();
+        $controller->verifyRegistry();
+    case 'logout':
+        $controller = new AuthController();
+        $controller->logout();
     case 'discos':
         $controller = new ListasController();
         $controller->showDiscos();
@@ -33,9 +46,6 @@ switch ($params[0]) {
     case 'filtrar':
         $controller = new ListasController();
         $controller->filtrarDiscos();
-        break;
-    case 'login':
-        require 'templates/header.phtml';
         break;
     case 'listardiscos':
         $controller = new DiscosController();
@@ -82,11 +92,11 @@ switch ($params[0]) {
         $controller->removeArtistFromSelection($params[1]);
         break;
     case 'discosseleccionados':
-        $controller = new DiscosController;
-        $controller->showSeleccionados();
+        $controller = new ListasController;
+        $controller->showAlbSeleccionados();
         break;
     case 'artistasseleccionados':
-        $controller = new ArtistasController;
-        $controller->showSeleccionados();
+        $controller = new ListasController;
+        $controller->showArtSeleccionados();
         break;
 }

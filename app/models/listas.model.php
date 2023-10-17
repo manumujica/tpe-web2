@@ -35,4 +35,16 @@ class ListasModel {
 
         return $artistas;
     }
+    public function getSelectedAlbums(){
+        $query = $this->db->prepare('SELECT discos.*, artistas.artist_name as artist_name FROM discos JOIN artistas ON discos.id_artist = artistas.id_artist WHERE discos.selected = 1');
+        $query->execute();
+        $albums = $query->fetchAll(PDO::FETCH_OBJ);
+        return $albums;
+    }
+    public function getSelectedArtists(){
+        $query = $this->db->prepare('SELECT * FROM artistas WHERE artistas.selected = 1');
+        $query->execute();
+        $albums = $query->fetchAll(PDO::FETCH_OBJ);
+        return $albums;
+    }
 }

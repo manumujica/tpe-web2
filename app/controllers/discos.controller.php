@@ -2,6 +2,7 @@
 
 include_once './app/models/discos.model.php';
 include_once './app/views/discos.view.php';
+include_once './app/helpers/auth.helper.php';
 
 class DiscosController {
     
@@ -9,6 +10,7 @@ class DiscosController {
     private $view;
 
     function __construct(){
+        AuthHelper::verify();
         $this->model = new DiscosModel();
         $this->view = new DiscosView();
     }
@@ -54,10 +56,5 @@ class DiscosController {
     function removeAlbumFromSelection($id){
         $this->model->restoreAlbum($id);
         header('Location: ' . BASE_URL . 'listardiscos');
-    }
-
-    function showSeleccionados(){
-        $albums = $this->model->getSelectedAlbums();
-        $this->view->showAlbums($albums);
     }
 }
