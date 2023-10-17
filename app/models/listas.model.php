@@ -19,7 +19,7 @@ class ListasModel {
 
     public function getDiscosFiltrados($artistaDeseado){
         echo"| variable recibida en getDiscosFiltrados(): $artistaDeseado ";
-        $query = $this->db->prepare('SELECT discos.*, artistas.artist_name as artist_name FROM discos JOIN artistas ON discos.id_artist = artistas.id_artista WHERE artistas.artist_name = "$artistaDeseado"');
+        $query = $this->db->prepare("SELECT discos.*, artistas.artist_name as artist_name FROM discos JOIN artistas ON discos.id_artist = artistas.id_artist WHERE artistas.artist_name = '$artistaDeseado'");
         $query->execute();
         $discos = $query->fetchAll(PDO::FETCH_OBJ);
         echo"| Arreglo de discos en getDiscosFiltrados(): ";
