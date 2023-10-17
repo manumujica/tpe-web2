@@ -26,18 +26,8 @@ class DiscosView {
             </table> <?php
     }
 
-    public function showAddAlbum($artists){?>
-        <form action="agregardisco" method="POST">
-        <input required type="text" name="album" placeholder="Ingrese título del disco">
-        <input required type="date" name="dor" placeholder="Ingrese fecha de lanzamiento">
-        <select name="id_artist" placeholder="artista">
-            <?php foreach ($artists as $artist) : ?>
-                <option value=<?= $artist->id_artist ?>><?= $artist->artist_name ?></option>
-            <?php endforeach ?>
-        </select>
-        <input required type="time" name="duration" placeholder="Ingrese largo del disco">
-        <button type="submit">Agregar album</button>
-        </form><?php
+    public function showAddAlbum($artists){
+        require_once './templates/addalbum.phtml';
     }
 
     public function showError($error){

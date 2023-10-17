@@ -1,6 +1,5 @@
 <?php
 require_once './app/controllers/listas.controller.php';
-require_once './app/controllers/lista.discos.controller.php';
 require_once './app/controllers/discos.controller.php';
 require_once './app/controllers/artistas.controller.php';
 require_once './app/controllers/auth.controller.php';

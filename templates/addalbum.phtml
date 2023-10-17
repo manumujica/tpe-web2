@@ -5,7 +5,7 @@
     <input required type="date" name="dor" placeholder="Ingrese fecha de lanzamiento">
     <select name="id_artist" placeholder="artista">
         <?php foreach ($artists as $artist) : ?>
-            <option value=<?= $artist->id_artist ?>><?= $artist->$artist_name ?></option>
+            <option value=<?= $artist->id_artist ?>><?= $artist->artist_name ?></option>
         <?php endforeach ?>
     </select>
     <input required type="time" name="duration" placeholder="Ingrese largo del disco">
