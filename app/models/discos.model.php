@@ -15,12 +15,12 @@ class DiscosModel {
         return $albums;
     }
 
-    /*public function getArtistsForAlbum(){
+    public function getArtistsForAlbum(){
         $query = $this->db->prepare('SELECT * FROM artistas');
         $query->execute();
         $artists = $query->fetchAll(PDO::FETCH_OBJ);
         return $artists;
-    }*/
+    }
 
     public function insertAlbum($album_name, $release_date, $id_artist, $duration){
     

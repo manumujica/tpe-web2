@@ -30,6 +30,10 @@ switch ($params[0]) {
         $controller = new DiscosController();
         $controller->showAlbums();
         break;
+    case 'formagregardisco':
+        $controller = new DiscosController();
+        $controller->showAddalbum();
+        break;
     case 'agregardisco':
         $controller = new DiscosController();
         $controller->addAlbum();
