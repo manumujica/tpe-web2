@@ -1,21 +1,23 @@
 <?php require_once 'templates/header.phtml';?>
 
-<table>
+<table class="table">
+            <thead class="thead-dark">
             <tr>
-            <th>Título del disco</th>
-            <th>Fecha de lanzamiento</th>
-            <th>Artista</th>
-            <th>Duración</th>
-            <th>Eliminar</th>
-            <th>Selección</th>
-            </tr><?php foreach ($albums as $album) { ?>
+                <th scope="col">Título del disco</th>
+                <th scope="col">Fecha de lanzamiento</th>
+                <th scope="col">Artista</th>
+                <th scope="col">Duración</th>
+                <th scope="col">Eliminar</th>
+                <th scope="col">Selección</th>
+            </tr>
+            </thead><?php foreach ($albums as $album) { ?>
                 <tr>
-                    <td><?php echo $album->album_name ?></td>
-                    <td><?php echo $album->release_date ?></td>
-                    <td><?php echo $album->artist_name ?></td>
-                    <td><?php echo $album->duration?></td>
-                    <td><a href="eliminardisco/<?php echo $album->id_album ?>">eliminar</a></td>
-                    <td><?php if(!$album->selected){ ?> <a href="seleccionardisco/<?php echo $album->id_album ?>">agregar a selección</a><?php }
+                    <td scope="row"><?php echo $album->album_name ?></td>
+                    <td scope="row"><?php echo $album->release_date ?></td>
+                    <td scope="row"><?php echo $album->artist_name ?></td>
+                    <td scope="row"><?php echo $album->duration?></td>
+                    <td scope="row"><a href="eliminardisco/<?php echo $album->id_album ?>">eliminar</a></td>
+                    <td scope="row"><?php if(!$album->selected){ ?> <a href="seleccionardisco/<?php echo $album->id_album ?>">agregar a selección</a><?php }
                     else {?> <a href="deseleccionardisco/<?php echo $album->id_album ?>">quitar de selección</a> <?php } ?></td>
                 </tr>
             <?php } ?>

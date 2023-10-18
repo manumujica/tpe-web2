@@ -1,13 +1,22 @@
 <?php require_once 'templates/header.phtml' ?>
 
 <form action="agregardisco" method="POST">
-    <input required type="text" name="album" placeholder="Ingrese título del disco">
-    <input required type="date" name="dor" placeholder="Ingrese fecha de lanzamiento">
-    <select name="id_artist" placeholder="artista">
-        <?php foreach ($artists as $artist) : ?>
-            <option value=<?= $artist->id_artist ?>><?= $artist->artist_name ?></option>
-        <?php endforeach ?>
-    </select>
-    <input required type="time" name="duration" placeholder="Ingrese largo del disco">
-    <button type="submit">Agregar album</button>
+    <div class="form-group">
+        <label for="album">Album:</label>
+        <input required type="text" class="form-control" name="album" placeholder="Ingrese título del disco">
+    </div>
+        <label for="dor">Fecha de lanzamiento:</label>
+        <input required type="date" class="form-control" name="dor" placeholder="Ingrese fecha de lanzamiento">
+    </div>
+        <label for="id_artist">Artista:</label>
+        <select name="id_artist" class="form-control" placeholder="artista">
+            <?php foreach ($artists as $artist) : ?>
+                <option value=<?= $artist->id_artist ?>><?= $artist->artist_name ?></option>
+            <?php endforeach ?>
+        </select>
+    </div>
+        <label for="duration">Duración:</label>
+        <input required type="time" class="form-control" name="duration" placeholder="Ingrese largo del disco">
+    </div>
+        <button type="submit" class="btn btn-primary mt-2">Agregar album</button>
 </form>

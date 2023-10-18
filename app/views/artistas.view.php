@@ -2,7 +2,6 @@
 
 class ArtistasView{
     public function showArtists($artists){
-        require 'templates/addartist.phtml';
         require 'templates/showArtistsAdmin.phtml';
     }
 
