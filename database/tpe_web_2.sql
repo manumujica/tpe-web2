@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2023 a las 00:50:18
+-- Tiempo de generación: 18-10-2023 a las 04:45:29
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -41,10 +41,14 @@ CREATE TABLE `artistas` (
 
 INSERT INTO `artistas` (`id_artist`, `artist_name`, `artist_dob`, `artist_pob`, `selected`) VALUES
 (1, 'Charly García', '1951-10-23', 'Argentina', 0),
-(2, 'León Gieco', '1951-11-20', 'Argentina', 1),
-(6, 'Luis Alberto Spinetta', '1950-01-23', 'Argentina', 1),
+(2, 'León Gieco', '1951-11-20', 'Argentina', 0),
 (7, 'Fito Páez', '1963-03-13', 'Argentina', 1),
-(8, 'Caetano Veloso', '1942-08-07', 'Brasil', 0);
+(8, 'Caetano Veloso', '1942-08-07', 'Brasil', 0),
+(11, 'Bob Dylan', '1941-05-24', 'Estados Unidos', 0),
+(12, 'Jimi Hendrix', '1942-11-27', 'Estados Unidos', 1),
+(13, 'Chico Buarque', '1944-06-19', 'Brasil', 1),
+(14, 'Luis Alberto Spinetta', '1950-01-23', 'Argentina', 0),
+(15, 'David Bowie', '1947-01-08', 'Inglaterra', 1);
 
 -- --------------------------------------------------------
 
@@ -71,9 +75,18 @@ INSERT INTO `discos` (`id_album`, `album_name`, `release_date`, `id_artist`, `du
 (5, 'El fantasma de Canterville', '1976-02-03', 2, '00:41:00', 1),
 (6, 'León Gieco', '1973-07-16', 2, '00:33:00', 0),
 (7, 'La banda de caballos cansados', '1974-09-01', 2, '00:36:00', 0),
-(8, '4º L.P.', '1979-07-28', 2, '00:40:00', 0),
+(8, '4º L.P.', '1979-07-28', 2, '00:40:00', 1),
 (9, 'Pensar en nada', '1981-12-05', 2, '00:43:00', 0),
-(11, 'De Ushuaia a la Quiaca vol.2', '1986-04-03', 2, '00:42:00', 0);
+(11, 'De Ushuaia a la Quiaca vol.2', '1986-04-03', 2, '00:42:00', 0),
+(19, 'Influencia', '2002-07-06', 1, '00:43:00', 0),
+(20, 'El aguante', '1998-12-26', 1, '00:48:00', 1),
+(21, 'La hija de la lagrima', '1994-07-06', 1, '01:08:00', 0),
+(22, 'Filosofía barata y zapatos de goma', '1990-07-15', 1, '00:42:00', 0),
+(23, 'Cómo conseguir chicas', '1989-02-16', 1, '00:37:00', 0),
+(24, 'Parte de la religión', '1987-05-28', 1, '00:39:00', 0),
+(25, 'Del 63', '1984-05-02', 7, '00:36:00', 1),
+(26, 'Giros', '1985-12-08', 7, '00:30:00', 0),
+(27, 'Ciudad de pobres corazones', '1987-06-15', 7, '00:44:00', 0);
 
 -- --------------------------------------------------------
 
@@ -126,13 +139,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `artistas`
 --
 ALTER TABLE `artistas`
-  MODIFY `id_artist` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_artist` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `discos`
 --
 ALTER TABLE `discos`
-  MODIFY `id_album` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_album` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
