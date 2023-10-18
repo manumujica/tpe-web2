@@ -9,7 +9,6 @@ class Model {
     }
 
     function deploy() {
-        $hashpass = '$2y$10$WU3Z7Qt2xF/u0vp/H5WXD.bypCt1YAD0ITfxlvstYYEXJrOOylmtO';
         $query = $this->db->query('SHOW TABLES');
         $tables = $query->fetchAll();
         if(count($tables) == 0) {
@@ -89,7 +88,7 @@ class Model {
             --
             
             INSERT INTO `usuarios` (`id`, `username`, `password`) VALUES
-            (7, 'webadmin', $hashpass);
+            (7, 'webadmin', $2y$10\$WU3Z7Qt2xF/u0vp/H5WXD.bypCt1YAD0ITfxlvstYYEXJrOOylmtO);
             
             --
             -- Índices para tablas volcadas
