@@ -1,10 +1,21 @@
 <?php require_once 'header.phtml' ?>
 
 <form action="agregarartista" method="POST">
-    <input required type="text" name="artist" placeholder="Ingrese nombre del artista">
-    <input required type="date" name="dob" placeholder="Ingrese fecha de nacimiento">
-    <input required type="text" name="pob" placeholder="Ingrese país de nacimiento">
-    <button type="submit">Agregar album</button>
+    <div class="form-group">
+        <label for="artist">Artista</label>
+        <input required type="text" class="form-control" name="artist" placeholder="Ingrese nombre del artista">
+    </div>
+    <div class="form-group">
+        <label for="dob">Fecha de nacimiento</label>
+        <input required type="date" class="form-control" name="dob" placeholder="Ingrese fecha de nacimiento">
+    </div>
+    <div class="form-group">
+        <label for="pob">País de nacimiento</label>
+        <input required type="text" class="form-control" name="pob" placeholder="Ingrese país de nacimiento">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary mt-2">Agregar artista</button>
+    </div>
 </form>
-
+<?php require 'templates/volverMenuAdmin.phtml';?>
 <?php require_once 'footer.phtml' ?>

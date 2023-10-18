@@ -1,23 +1,37 @@
 <?php require_once 'templates/header.phtml'?>
 
 <table class="table">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Fecha de nacimiento</th>
-                <th scope="col">País de nacimiento</th>
-                <th scope="col">Eliminar</th>
-                <th scope="col">Selección</th>
-            </tr><?php foreach ($artists as $artist) { ?>
-            <tr>
-            </thead>
-                <td scope="row"><?php echo $artist->artist_name ?></td>
-                <td scope="row"><?php echo $artist->artist_dob ?></td>
-                <td scope="row"><?php echo $artist->artist_pob ?></td>
-                <td scope="row"><a href="eliminarartista/<?php echo $artist->id_artist ?>">eliminar</a></td>
-                <td scope="row"><?php if(!$artist->selected){ ?> <a href="seleccionarartista/<?php echo $artist->id_artist ?>">agregar a selección</a><?php }
-                else {?> <a href="deseleccionarartista/<?php echo $artist->id_artist ?>">quitar de selección</a> <?php } ?></td>
-            </tr>
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Fecha de nacimiento</th>
+        <th scope="col">País de nacimiento</th>
+        <th scope="col">Eliminar</th>
+        <th scope="col">Selección</th>
+    </tr><?php foreach ($artists as $artist) { ?>
+    <tr>
+    </thead>
+        <td scope="row"><?php echo $artist->artist_name ?></td>
+        <td scope="row"><?php echo $artist->artist_dob ?></td>
+        <td scope="row"><?php echo $artist->artist_pob ?></td>
+        <td scope="row">
+            <form method="POST" action="eliminardisco/<?php echo $artist->id_artist ?>">
+                <button type="submit" class="btn btn-outline-info">Eliminar</button>
+            </form>
+        </td>
+        <td scope="row">
+            <?php if (!$artist->selected) { ?>
+                <form method="POST" action="seleccionarartista/<?php echo $artist->id_artist ?>">
+                    <button type="submit" class="btn btn-outline-warning">Agregar a selección</button>
+                </form>
+            <?php } else { ?>
+                <form method="POST" action="deseleccionarartista/<?php echo $artist->id_artist ?>">
+                    <button type="submit" class="btn btn-outline-warning">Quitar de selección</button>
+                </form>
             <?php } ?>
+        </td>
+        </tr>
+    <?php } ?>
 </table>
+<?php require 'templates/volverMenuAdmin.phtml';?>
 <?php require_once 'templates/footer.phtml' ?>

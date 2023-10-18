@@ -16,11 +16,25 @@
                     <td scope="row"><?php echo $album->release_date ?></td>
                     <td scope="row"><?php echo $album->artist_name ?></td>
                     <td scope="row"><?php echo $album->duration?></td>
-                    <td scope="row"><a href="eliminardisco/<?php echo $album->id_album ?>">eliminar</a></td>
-                    <td scope="row"><?php if(!$album->selected){ ?> <a href="seleccionardisco/<?php echo $album->id_album ?>">agregar a selección</a><?php }
-                    else {?> <a href="deseleccionardisco/<?php echo $album->id_album ?>">quitar de selección</a> <?php } ?></td>
-                </tr>
+                    <td scope="row">
+                        <form method="POST" action="eliminardisco/<?php echo $album->id_album ?>">
+                            <button type="submit" class="btn btn-outline-info">Eliminar</button>
+                        </form>
+                    </td>
+                    <td scope="row">
+                        <?php if (!$album->selected) { ?>
+                            <form method="POST" action="seleccionardisco/<?php echo $album->id_album ?>">
+                                <button type="submit" class="btn btn-outline-warning">Agregar a selección</button>
+                            </form>
+                        <?php } else { ?>
+                            <form method="POST" action="deseleccionardisco/<?php echo $album->id_album ?>">
+                                <button type="submit" class="btn btn-outline-warning">Quitar de selección</button>
+                            </form>
+                        <?php } ?>
+                    </td>
+                    </tr>
             <?php } ?>
         </table>
 
+<?php require 'templates/volverMenuAdmin.phtml';?>
 <?php require 'templates/footer.phtml';?>

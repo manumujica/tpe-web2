@@ -1,13 +1,15 @@
-<?php require_once 'templates/header.phtml' ?>
+<?php require_once 'header.phtml' ?>
 
 <form action="agregardisco" method="POST">
     <div class="form-group">
         <label for="album">Album:</label>
         <input required type="text" class="form-control" name="album" placeholder="Ingrese título del disco">
     </div>
+    <div class="form-group">
         <label for="dor">Fecha de lanzamiento:</label>
         <input required type="date" class="form-control" name="dor" placeholder="Ingrese fecha de lanzamiento">
     </div>
+    <div class="form-group">
         <label for="id_artist">Artista:</label>
         <select name="id_artist" class="form-control" placeholder="artista">
             <?php foreach ($artists as $artist) : ?>
@@ -15,8 +17,13 @@
             <?php endforeach ?>
         </select>
     </div>
+    <div class="form-group">
         <label for="duration">Duración:</label>
         <input required type="time" class="form-control" name="duration" placeholder="Ingrese largo del disco">
     </div>
+    <div class="form-group">
         <button type="submit" class="btn btn-primary mt-2">Agregar album</button>
+    </div>
 </form>
+<?php require 'templates/volverMenuAdmin.phtml';?>
+<?php require 'templates/footer.phtml' ?>
