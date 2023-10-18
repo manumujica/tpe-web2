@@ -1,24 +1,15 @@
 <?php
 require_once './app/helpers/db.helper.php';
+require_once 'model.php';
 
 class ListasModel {
     protected $db;
 
     public function __construct() {
         $this->db = DBHelper::getConection();
-   //     $this->deploy();
+        $model = new Model;
+        $model->deploy();
     }
-
-  /*  private function _deploy() {
-        $query = $this->db->query('SHOW TABLES');
-        $tables = $query->fetchAll();
-        if(count($tables) == 0) {
-            $sql =<<<END
-		END;
-        $this->db->query($sql);
-        }
-    }
-*/
 
     public function getDiscos(){
         $query = $this->db->prepare("SELECT discos.*, artistas.artist_name as artist_name FROM discos JOIN artistas ON discos.id_artist = artistas.id_artist");

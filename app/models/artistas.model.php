@@ -1,4 +1,5 @@
 <?php
+require_once 'model.php';
 
 require_once './app/helpers/db.helper.php';
 
@@ -7,6 +8,8 @@ class ArtistasModel{
 
     public function __construct() {
         $this->db = DBHelper::getConection();
+        $model = new Model;
+        $model->deploy();
     }
 
     public function getArtists(){
