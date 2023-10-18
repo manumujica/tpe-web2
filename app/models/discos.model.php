@@ -1,5 +1,7 @@
 <?php
 
+require_once './app/helpers/db.helper.php';
+
 class DiscosModel {
     
     protected $db;

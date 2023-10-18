@@ -1,10 +1,12 @@
 <?php
 
+require_once './app/helpers/db.helper.php';
+
 class UserModel {
     private $db;
 
     function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=tpe_web_2;charset=utf8', 'root', '');
+        $this->db = DBHelper::getConection();
     }
 
     public function getByUsername($username){
