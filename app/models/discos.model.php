@@ -1,4 +1,5 @@
 <?php
+require_once 'model.php';
 
 class DiscosModel {
     
@@ -6,6 +7,8 @@ class DiscosModel {
 
     public function __construct() {
         $this->db = DBHelper::getConection();
+        $model = new Model;
+        $model->deploy();
     }
 
     public function getAlbums(){

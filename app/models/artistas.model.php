@@ -1,10 +1,13 @@
 <?php
+require_once 'model.php';
 
 class ArtistasModel{
     protected $db;
 
     public function __construct() {
         $this->db = DBHelper::getConection();
+        $model = new Model;
+        $model->deploy();
     }
 
     public function getArtists(){
