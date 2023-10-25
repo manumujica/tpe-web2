@@ -1,13 +1,7 @@
 <?php
 require_once 'model.php';
-class UserModel {
-    private $db;
-
-    function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=tpe_web_2;charset=utf8', 'root', '');
-        $model = new Model;
-        $model->deploy();
-    }
+class UserModel extends Model {
+    protected $db;
 
     public function getByUsername($username){
         $query = $this->db->prepare('SELECT * FROM usuarios WHERE username = ?');

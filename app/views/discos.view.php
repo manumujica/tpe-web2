@@ -16,4 +16,16 @@ class DiscosView {
     public function showAdminMenu(){
         require 'templates/adminmenu.phtml';
     }
+    public function showAlbumsPublic($discos) {
+        $count = count($discos);
+        require 'templates/discosList.phtml';
+    }
+    public function showFiltroPublic($artistas) {
+        require 'templates/formDiscoPorArtista.phtml';
+    }
+
+    public function showDetalleDisco($disco){
+        require 'templates/detalleDisco.phtml';
+    }
+
 }

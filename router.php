@@ -1,5 +1,4 @@
 <?php
-require_once './app/controllers/listas.controller.php';
 require_once './app/controllers/discos.controller.php';
 require_once './app/controllers/artistas.controller.php';
 require_once './app/controllers/auth.controller.php';
@@ -40,24 +39,24 @@ switch ($params[0]) {
         $controller->logout();
         break;
     case 'discos':
-        $controller = new ListasController();
-        $controller->showDiscos();
+        $controller = new DiscosController();
+        $controller->showAlbumsPublic();
         break;
     case 'detalleDiscos': 
-        $controller = new ListasController();
+        $controller = new DiscosController();
         $controller->showDetalleDiscoById($params[1]);        
         break;
     case 'artistas':
-        $controller = new ListasController();
-        $controller->showArtistas();
+        $controller = new ArtistasController();
+        $controller->showArtistasPublic();
         break;
     case 'filtrar':
-        $controller = new ListasController();
+        $controller = new DiscosController();
         $controller->filtrarDiscos();
         break;
     case 'listardiscos':
         $controller = new DiscosController();
-        $controller->showAlbums();
+        $controller->showAlbumsAdmin();
         break;
     case 'formagregardisco':
         $controller = new DiscosController();
@@ -81,7 +80,7 @@ switch ($params[0]) {
         break;
     case 'listarartistas':
         $controller = new ArtistasController();
-        $controller->showArtists();
+        $controller->showArtistAdmin();
         break;
     case 'formagregarartista':
         $controller = new ArtistasController();
@@ -104,11 +103,11 @@ switch ($params[0]) {
         $controller->removeArtistFromSelection($params[1]);
         break;
     case 'discosseleccionados':
-        $controller = new ListasController();
+        $controller = new DiscosController();
         $controller->showAlbSeleccionados();
         break;
     case 'artistasseleccionados':
-        $controller = new ListasController();
+        $controller = new ArtistasController();
         $controller->showArtSeleccionados();
         break;
     case 'loginhome':

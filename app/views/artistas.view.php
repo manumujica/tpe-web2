@@ -1,8 +1,13 @@
 <?php
 
 class ArtistasView{
-    public function showArtists($artists){
+    public function showArtistsAdmin($artists){
         require 'templates/showArtistsAdmin.phtml';
+    }
+
+    public function showArtistasPublic($artistas) {
+        $count = count($artistas);
+        require 'templates/artistasListPublic.phtml';
     }
 
     public function showAddArtist(){

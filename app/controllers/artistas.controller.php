@@ -15,9 +15,9 @@ class ArtistasController{
         $this->view = new ArtistasView();
     }
 
-    function showArtists(){
+    function showArtistAdmin(){
         $artists = $this->model->getArtists();
-        $this->view->showArtists($artists);
+        $this->view->showArtistsAdmin($artists);
     }
 
     function showAddArtist(){
@@ -55,5 +55,15 @@ class ArtistasController{
     function removeArtistFromSelection($id) {
         $this->model->restoreArtist($id);
         header('Location: ' . BASE_URL . 'listarartistas');
+    }
+
+    function showArtSeleccionados(){
+        $artistas = $this->model->getSelectedArtists();
+        $this->view->showArtistasPublic($artistas);
+    }
+
+    function showArtistasPublic(){
+        $artistas = $this->model->getArtists();
+        $this->view->showArtistasPublic($artistas);
     }
 }

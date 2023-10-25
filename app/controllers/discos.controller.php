@@ -1,6 +1,7 @@
 <?php
 
 include_once './app/models/discos.model.php';
+include_once './app/models/artistas.model.php';
 include_once './app/views/discos.view.php';
 include_once './app/helpers/auth.helper.php';
 
@@ -14,7 +15,7 @@ class DiscosController {
         $this->model = new DiscosModel();
         $this->view = new DiscosView();
     }
-    function showAlbums(){
+    function showAlbumsAdmin(){
         $albums = $this->model->getAlbums();
         $this->view->showAlbums($albums);
     }
@@ -61,4 +62,47 @@ class DiscosController {
     function showLoggedHome(){
         $this->view->showAdminMenu();
     }
+
+    //Por acá están las funciones de los usuarios publicos
+    function showAlbumsPublic(){
+        $albums = $this->model->getAlbums();
+        $this->view->showAlbumsPublic($albums);
+        $this->showFiltro();
+    }
+
+    function showFiltro(){
+        //pido los artistas para mostrarlos en el select del form de filtradodinamicamente
+        $modelArtistas = new ArtistasModel;
+        $artistas = $modelArtistas->getArtists();
+        $this->view->showFiltroPublic($artistas);
+    }
+
+    function showDetalleDiscoById($id){
+        $disco=$this->model->getDiscoById($id);
+        $this->view->showDetalleDisco($disco);
+    }
+
+    function filtrarDiscos(){
+        //recibo por $_POST el artista por el que quiero filtrar los discos mostrados y lo guardo en variable
+        $artistaDeseado= $_POST['artistas'];
+        if($artistaDeseado=="Todos"){$discos = $this->model->getAlbums();}
+        else{$discos = $this->model->getDiscosFiltrados($artistaDeseado);}
+
+        if (count($discos)==0){
+            $error="No hay discos de éste artista";
+            $this->view->showError($error);
+            $this->showFiltro();
+        }
+        else{
+            $this->view->showAlbumsPublic($discos);
+            $this->showFiltro();
+        }        
+    }
+
+    function showAlbSeleccionados(){
+        $albums = $this->model->getSelectedAlbums();
+        $this->view->showAlbumsPublic($albums);
+    }
+
+
 }

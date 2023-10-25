@@ -3,14 +3,8 @@ require_once 'model.php';
 
 require_once './app/helpers/db.helper.php';
 
-class ArtistasModel{
+class ArtistasModel extends Model{
     protected $db;
-
-    public function __construct() {
-        $this->db = DBHelper::getConection();
-        $model = new Model;
-        $model->deploy();
-    }
 
     public function getArtists(){
         $query = $this->db->prepare('SELECT * FROM artistas');
@@ -38,5 +32,12 @@ class ArtistasModel{
     public function restoreArtist($id) {
         $query = $this->db->prepare('UPDATE artistas SET selected = 0 WHERE id_artist = ?');
         $query->execute([$id]);
+    }
+
+    public function getSelectedArtists(){
+        $query = $this->db->prepare('SELECT * FROM artistas WHERE artistas.selected = 1');
+        $query->execute();
+        $albums = $query->fetchAll(PDO::FETCH_OBJ);
+        return $albums;
     }
 }
